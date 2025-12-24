@@ -140,63 +140,96 @@ const CALENDAR_DATA = [
   },
 ];
 
+/* ------------------------------------------------------
+   SPECIAL HOLIDAYS
+-------------------------------------------------------*/
+const SPECIAL_HOLIDAYS = {
+  "FEBRUARY 2026": [{ day: 21, title: "International Mother Language Day" }],
+  "MARCH 2026": [
+    { day: 18, title: "Lailatul Qadr" },
+    { day: 26, title: "Independence Day" },
+  ],
+  "APRIL 2026": [{ day: 14, title: "Bengali New Year" }],
+  "MAY 2026": [
+    { day: 1, title: "May Day" },
+    { day: 4, title: "Buddha Purnima" },
+    { day: 25, title: "Eid-ul-Fitr" },
+  ],
+  "JUNE 2026": [{ day: 26, title: "Ashura" }],
+  "AUGUST 2026": [
+    { day: 5, title: "July Mass Uprising Day" },
+    { day: 25, title: "Eid-e-Milad-un-Nabi" },
+  ],
+  "SEPTEMBER 2026": [{ day: 4, title: "Janmashtami" }],
+  "OCTOBER 2026": [{ day: 20, title: "Durga Puja" }],
+  "DECEMBER 2026": [
+    { day: 16, title: "Victory Day" },
+    { day: 25, title: "Christmas Day" },
+  ],
+};
+
 const WEEK_DAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
 /* ------------------------------------------------------
    FANCY HEADER
 -------------------------------------------------------*/
-const FancyHeader = () => (
-  <div className="w-full bg-[#0A6C2F] flex items-center justify-between py-4 px-6 border-b-4">
-    {/* Left Logo */}
-    <div className="flex-shrink-0 bg-white h-24 w-24 flex items-center justify-center border">
-      <img src="m.jpeg" alt="Left Logo" className="h-20 object-contain" />
-    </div>
-
-    {/* Left Text: MANARAT */}
-    <div className="flex flex-col items-center justify-center px-4">
-      <div className="text-7xl font-extrabold text-white tracking-wide leading-none">
-        MANARAT
+const FancyHeader = () => {
+  return (
+    <div className="w-full bg-[#0A6C2F] flex items-center px-6 py-4 border-b-4 border-yellow-400">
+      
+      {/* Left Logo */}
+      <div className="bg-white h-24 w-24 flex items-center justify-center">
+        <img
+          src="m.jpeg"
+          alt="Left Logo"
+          className="h-20 object-contain"
+        />
       </div>
-    </div>
 
-    {/* Divider Line */}
-    <div className="h-20 border-l-4 border-yellow-300 mx-4"></div>
-
-    {/* Right Text: Two stacked names */}
-    <div className="flex flex-col text-left px-4">
-      <div className="text-2xl font-semibold text-white leading-tight">
-        PABNA MODEL SCHOOL & COLLEGE
+      {/* MANARAT Text */}
+      <div className="ml-6">
+        <h1 className="text-white text-[90px] font-extrabold leading-none tracking-wide">
+          MANARAT
+        </h1>
       </div>
-      <div className="text-2xl font-semibold text-yellow-300 leading-tight">
-        PABNA RESIDENTIAL CADET MADRASHA
+
+      {/* Divider */}
+      <div className="mx-6 h-24 w-[4px] bg-yellow-400"></div>
+
+      {/* Right Text */}
+      <div className="flex flex-col justify-center">
+        <p className="text-white text-2xl font-semibold leading-tight">
+          PABNA MODEL SCHOOL & COLLEGE
+        </p>
+        <p className="text-yellow-300 text-2xl font-semibold leading-tight">
+          PABNA RESIDENTIAL CADET MADRASHA
+        </p>
       </div>
-    </div>
 
-    {/* Right Logo */}
-    <div className="flex-shrink-0 bg-white h-24 w-24 flex items-center justify-center ">
-      <img src="n.jpeg" alt="Right Logo" className="h-20 object-contain" />
-    </div>
-  </div>
-);
+      {/* Right Logo */}
+      <div className="ml-auto bg-white h-24 w-24 flex items-center justify-center">
+        <img
+          src="n.jpeg"
+          alt="Right Logo"
+          className="h-20 object-contain"
+        />
+      </div>
 
+    </div>
+  );
+};
 /* ------------------------------------------------------
    MANARATE SECTION WITH FOUNDER BOX
 -------------------------------------------------------*/
 const ManarateSection = () => (
   <div className="w-full flex flex-col md:flex-row gap-6 p-6 bg-gray-50 rounded-lg shadow-sm">
-    {/* Left Side: Manarate Features */}
-    <div className="w-full md:w-1/2 space-y-4">
-      <h2 className="text-xl font-bold text-[#0B3A5A]">ManaraTe এর কিছু বৈশিষ্ট্য</h2>
-      <ul className="list-disc list-inside text-gray-700 space-y-2">
-        <li>উচ্চমানের শিক্ষা ও নৈতিক প্রশিক্ষণ।</li>
-        <li>প্রতিষ্ঠিত শিক্ষকমণ্ডলী।</li>
-        <li>উন্নত পাঠ্যক্রম ও আধুনিক সুবিধা।</li>
-        <li>শৃঙ্খলাবদ্ধ ছাত্র-ছাত্রী পরিবেশ।</li>
-        <li>বার্ষিক খেলাধুলা ও সাংস্কৃতিক কার্যক্রম।</li>
-      </ul>
+    <div className="w-full md:w-1/2">
+      <img
+        src="school.png"
+        alt="School Building"
+        className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
+      />
     </div>
-
-    {/* Right Side: Founder Info Box */}
     <div className="w-full md:w-1/2 bg-white border-l-4 border-[#A31F34] p-4 rounded-lg shadow-md flex flex-col justify-center">
       <h3 className="text-lg font-semibold text-[#A31F34] mb-2">প্রতিষ্ঠাতা</h3>
       <p className="text-gray-800 leading-relaxed">
@@ -216,16 +249,15 @@ const CalendarGrid = ({ calendar }) => {
     const map = {};
     for (let day = 1; day <= calendar.daysInMonth; day++) {
       const dow = (calendar.startDayIndex + day - 1) % 7;
-      if (dow === 0) map[day] = [{ title: "Weekly Exam Day", color: CALENDAR_COLORS.sundayExam }];
-      if (dow === 5 || dow === 6)
-        map[day] = [...(map[day] || []), { title: "Weekly Holiday", color: CALENDAR_COLORS.holiday }];
-      calendar.events
-        .filter(evt => evt.day === day)
-        .forEach(evt => {
-          map[day] = map[day] || [];
-          map[day].push(evt);
-        });
+      map[day] = [];
+      if (dow === 0) map[day].push({ title: "Weekly Exam Day", color: CALENDAR_COLORS.sundayExam });
+      if (dow === 5 || dow === 6) map[day].push({ title: "Weekly Holiday", color: CALENDAR_COLORS.holiday });
+      calendar.events.filter(evt => evt.day === day).forEach(evt => map[day].push(evt));
     }
+    (SPECIAL_HOLIDAYS[calendar.month] || []).forEach(h => {
+      map[h.day] = map[h.day] || [];
+      map[h.day].push({ title: h.title, color: CALENDAR_COLORS.holiday });
+    });
     return map;
   }, [calendar]);
 
@@ -233,7 +265,7 @@ const CalendarGrid = ({ calendar }) => {
   for (let i = 0; i < calendar.startDayIndex; i++) days.push(null);
   for (let i = 1; i <= calendar.daysInMonth; i++) days.push(i);
 
-  const getDisplayColor = (events) => {
+  const getDisplayColor = events => {
     if (!events) return null;
     const specificPriority = [
       CALENDAR_COLORS.deepPurple,
@@ -280,13 +312,12 @@ const CalendarGrid = ({ calendar }) => {
 -------------------------------------------------------*/
 const EventKey = ({ calendar }) => {
   const events = [...calendar.events];
-  if (!events.some(e => e.title === "Weekly Holiday"))
-    events.unshift({ title: "Weekly Holiday", color: CALENDAR_COLORS.holiday });
-  if (!events.some(e => e.title === "Weekly Exam Day"))
-    events.unshift({ title: "Weekly Exam Day", color: CALENDAR_COLORS.sundayExam });
-
+  if (!events.some(e => e.title === "Weekly Holiday")) events.unshift({ title: "Weekly Holiday", color: CALENDAR_COLORS.holiday });
+  if (!events.some(e => e.title === "Weekly Exam Day")) events.unshift({ title: "Weekly Exam Day", color: CALENDAR_COLORS.sundayExam });
+  (SPECIAL_HOLIDAYS[calendar.month] || []).forEach(h => {
+    events.push({ title: `${h.title} (${h.day})`, color: CALENDAR_COLORS.holiday });
+  });
   const unique = events.filter((e, i, a) => i === a.findIndex(x => x.title === e.title));
-
   return (
     <div className="space-y-1 text-sm">
       {unique.map((e, i) => (
@@ -310,27 +341,7 @@ const CalendarBlock = ({ calendar }) => (
       </div>
       <CalendarGrid calendar={calendar} />
     </div>
-
     <div className="md:w-1/2 pt-6">
-      {/* Right-side notices */}
-      {calendar.month === "APRIL 2026" && (
-        <div className="mb-3 font-semibold text-[#F40B2A]">
-          1st Provisional Exam (29 April – 7 May)
-        </div>
-      )}
-
-      {calendar.month === "AUGUST 2026" && (
-        <div className="mb-3 font-semibold text-[#F40B2A]">
-          2nd Provisional Exam (30 August – 7 September)
-        </div>
-      )}
-
-      {calendar.month === "DECEMBER 2026" && (
-        <div className="mb-3 font-semibold text-[#F40B2A]">
-          Annual Exam (1st December – 9th December)
-        </div>
-      )}
-
       <EventKey calendar={calendar} />
     </div>
   </div>
